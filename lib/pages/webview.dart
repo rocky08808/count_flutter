@@ -11,17 +11,9 @@ class WebViewPage extends StatefulWidget {
 class _WebViewPage extends State<WebViewPage> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text(
-          'count',
-          style: TextStyle(color: Colors.white),
-        ),
-        centerTitle: true,
-      ),
-      body: const WebView(
-        initialUrl: 'https://github.com/',
-      ),
-    );
+    return const SafeArea(
+        child: WebView(
+      initialUrl: 'https://rocky08808.github.io/count/',
+    ));
   }
 }
