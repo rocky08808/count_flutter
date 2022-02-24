@@ -12,10 +12,11 @@ class WebViewPage extends StatefulWidget {
 }
 
 class _WebViewPage extends State<WebViewPage> {
+  bool loading = true;
   @override
   void initState() {
     super.initState();
-    if (Platform.isAndroid) WebView.platform = AndroidWebView();
+    if (Platform.isAndroid) WebView.platform = SurfaceAndroidWebView();
   }
 
   @override
@@ -28,9 +29,29 @@ class _WebViewPage extends State<WebViewPage> {
           ),
           centerTitle: true,
         ),
-        body: WebView(
-          javascriptMode: JavascriptMode.unrestricted,
-          initialUrl: widget.url,
+        body: Stack(
+          children: [
+            WebView(
+                javascriptMode: JavascriptMode.unrestricted,
+                initialUrl: widget.url,
+                onPageStarted: (controller) {},
+                onPageFinished: (controller) {
+                  setState(() {
+                    loading = false;
+                  });
+                }),
+            ..._createLoading()
+          ],
         ));
+  }
+
+  _createLoading() {
+    return loading
+        ? [
+            const Center(
+              child: CircularProgressIndicator(),
+            )
+          ]
+        : [];
   }
 }
