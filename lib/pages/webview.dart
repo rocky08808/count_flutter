@@ -13,6 +13,7 @@ class _WebViewPage extends State<WebViewPage> {
   Widget build(BuildContext context) {
     return const SafeArea(
         child: WebView(
+      javascriptMode: JavascriptMode.unrestricted,
       initialUrl: 'https://rocky08808.github.io/count/',
     ));
   }
