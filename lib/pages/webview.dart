@@ -4,7 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
 class WebViewPage extends StatefulWidget {
-  const WebViewPage({Key? key}) : super(key: key);
+  final String url;
+  const WebViewPage({Key? key, required this.url}) : super(key: key);
 
   @override
   _WebViewPage createState() => _WebViewPage();
@@ -19,10 +20,17 @@ class _WebViewPage extends State<WebViewPage> {
 
   @override
   Widget build(BuildContext context) {
-    return const SafeArea(
-        child: WebView(
-      javascriptMode: JavascriptMode.unrestricted,
-      initialUrl: 'https://rocky08808.github.io/count/',
-    ));
+    return Scaffold(
+        appBar: AppBar(
+          title: const Text(
+            'web',
+            style: TextStyle(color: Colors.white),
+          ),
+          centerTitle: true,
+        ),
+        body: WebView(
+          javascriptMode: JavascriptMode.unrestricted,
+          initialUrl: widget.url,
+        ));
   }
 }

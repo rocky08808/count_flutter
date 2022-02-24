@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import './pages/webview.dart';
+import './pages/Home.dart';
 
 void main() {
   runApp(const MyApp());
@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.orange,
       ),
-      home: const WebViewPage(),
+      home: const HomePage(),
     );
   }
 }
