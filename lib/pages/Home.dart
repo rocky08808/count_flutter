@@ -9,7 +9,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePage extends State<HomePage> {
-  final url = 'https://rocky08808.github.io/count/';
+  final url = 'https://rocky08808.github.io/count-vue/';
   @override
   Widget build(BuildContext context) {
     return WebViewPage(url: url);
