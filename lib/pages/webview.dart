@@ -48,8 +48,10 @@ class _WebViewPage extends State<WebViewPage> {
   _createLoading() {
     return loading
         ? [
-            const Center(
-              child: CircularProgressIndicator(),
+            Container(
+              padding: const EdgeInsets.only(top: 50),
+              alignment: Alignment.topCenter,
+              child: const CircularProgressIndicator(),
             )
           ]
         : [];
